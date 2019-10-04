@@ -2,7 +2,9 @@
   (:require [clojure.pprint :as pp]
             [clojure.string :as str]
             [clojure.tools.cli :refer [parse-opts]]
-            [starter.config :as config])
+            [starter.config :as config]
+            [starter.handler :as handler]
+            [ring.adapter.jetty :as jetty])
   (:gen-class))
 
 
@@ -32,7 +34,7 @@
   (let [{:keys [options arguments errors summary]} (parse-opts args cli-options)]
       (cond
         (:help options) (println (usage summary))
-        :else (println "start web server") ;; (jetty/run-jetty handler/app {:port 4003})
+        :else (jetty/run-jetty handler/app {:port (config/port)})
         )))
 
 
