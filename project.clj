@@ -13,6 +13,10 @@
 
                  [selmer "1.12.12"]
 
+                 [mount "0.1.16"]
+                 [conman "0.8.3"]
+                 [org.postgresql/postgresql "42.2.6"]
+
                  ]
 
   :repl-options {:init-ns starter.core}
