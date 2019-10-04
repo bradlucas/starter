@@ -11,6 +11,8 @@
                  [ring/ring-defaults "0.3.2"]   
                  [ring/ring-jetty-adapter "1.7.1"]
 
+                 [selmer "1.12.12"]
+
                  ]
 
   :repl-options {:init-ns starter.core}
