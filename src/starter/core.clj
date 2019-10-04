@@ -1,7 +1,8 @@
 (ns starter.core
   (:require [clojure.pprint :as pp]
             [clojure.string :as str]
-            [clojure.tools.cli :refer [parse-opts]])
+            [clojure.tools.cli :refer [parse-opts]]
+            [starter.config :as config])
   (:gen-class))
 
 
@@ -21,7 +22,7 @@
        (str/join \newline)))
 
 (defn initialize []
-  ;; (config/load-config)
+  (config/load-config)
   ;; (mount/start)
 )
 
