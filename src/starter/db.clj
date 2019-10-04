@@ -3,7 +3,6 @@
             [mount.core :as mount :refer [defstate]]))
 
 
-
 ;; https://jdbc.postgresql.org/documentation/80/connect.html
 (def pool-spec
   {:jdbc-url   "jdbc:postgresql://localhost/starter"})

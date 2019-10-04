@@ -17,6 +17,9 @@
                  [conman "0.8.3"]
                  [org.postgresql/postgresql "42.2.6"]
 
+                 [buddy "2.0.0"]
+                 [luminus/ring-ttl-session "0.3.3"]
+
                  ]
 
   :repl-options {:init-ns starter.core}

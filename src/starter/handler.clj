@@ -1,22 +1,16 @@
 (ns starter.handler
   (:require [compojure.core :refer [routes GET defroutes]]
             [compojure.route :as route]
-            [ring.middleware.defaults :refer [site-defaults wrap-defaults]]
-            [starter.template :as template]))
+            [starter.routes.auth :as auth]
+            [starter.routes.account :as account]
+            [starter.routes.static :as static]
+            [starter.middleware :as middleware]))
 
-
-(defn index [req]
-  (template/render-file req "templates/index.html" {}))
-
-(defroutes main-routes
-  (GET "/" [] index))
-
-(defn wrap-base [handler]
-  (-> handler
-      (wrap-defaults site-defaults)))
 
 (def app
-  (wrap-base (routes main-routes
-                     (route/not-found "Not Found"))))
+  (middleware/wrap-base (routes static/routes
+                                auth/routes
+                                (middleware/wrap-restricted account/routes)
+                                (route/not-found "Not Found"))))
 
 
