@@ -1,14 +1,61 @@
 # starter
 
-A Clojure library designed to ... well, that part is up to you.
+A starter Clojure application with cmdline, compojure, selmer, bootstrap, mount, postgres and buddy auth.
+
+
+## Configuration
+
+This project reads from a config file  which it looks in ~/.starter with a name of config.edn.
+
+Three values are expected. Set them as you desire. See `config.clj` for more details.
+
+Here is an example.
+
+```
+{:root-url "http://localhost:4004"
+ :admin-email "you@your-site.com"
+ :port 4004
+}
+```
+
+## Database
+
+This project is configured to connect with a local postgres database with the same name as the project, `starter`.
+
+See the `scripts` directory for a rebuild script. Database sql files are in `resources/sql`.
+
+
+## Auth
+
+The project uses the Buddy library to support authentication. For an example, run the `scripts/test-data.sh` script.
+
+This will create an account with the following credentials.
+
+```
+Email: foo@foo.com
+Password: password
+```
+
+If you want to consider this the `Administrator` then set admin-email to foo@foo.com in the ~/.starter/config.edn file.
+
+
+## Selmer and Templates
+
+See `resources/templates` for the initial templates included with the project.
+
 
 ## Usage
 
-FIXME
+
+```
+lein uberjar
+java -jar starter-standalone.jar
+```
+
 
 ## License
 
-Copyright © 2019 FIXME
+Copyright © 2019 Brad Lucas
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
