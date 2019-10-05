@@ -28,13 +28,9 @@
   (config/load-config)
   (mount/start))
 
-
 (defn -main [& args]
   (initialize)
   (let [{:keys [options arguments errors summary]} (parse-opts args cli-options)]
       (cond
         (:help options) (println (usage summary))
-
         :else (jetty/run-jetty handler/app {:port (config/port)}))))
-
-
