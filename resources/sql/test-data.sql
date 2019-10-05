@@ -1,5 +1,7 @@
 -- ----------------------------------------------------------------------------------------------------
 -- test-data.sql
 
-INSERT INTO account (email, password) values ('admin@foo.com', 'password');
+INSERT INTO account (email, password) values ('foo@foo.com', sha256('password'));
+
+
 
