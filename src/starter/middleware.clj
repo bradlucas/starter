@@ -77,6 +77,6 @@
       (wrap-defaults
         (-> site-defaults
             (assoc-in [:security :anti-forgery] true)
-            (assoc-in [:session :cookie-name] "ring-session-face-time")
+            (assoc-in [:session :cookie-name] "ring-session-starter")
             (assoc-in [:session :store] (ttl-memory-store (* 60 30)))))
       wrap-internal-error))
